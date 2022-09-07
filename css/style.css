@@ -1,0 +1,45 @@
+.header__nav{
+    background-color: #100720;
+
+}
+
+body{
+ background: #31087B;
+}
+
+.nav-link{
+    color: white;
+    
+
+}
+
+.nav-item{
+    color: white;
+  padding: 10px;
+}
+
+.navbar-nav{
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-toggler{
+    color: white;
+   
+}
+
+.menu__Fondo{
+ 
+    background-size:cover;
+    width: auto;
+    margin: 3px;
+    height: 900px;
+}
+
+footer{
+   background-color:#100720;
+   height: 100px;
+}
