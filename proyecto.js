@@ -5,7 +5,18 @@ let esturaUsuario
 let imcUsuario
 let salir
 do {
+    nombre();
+    function nombre(){
+    let nombreCliente=  prompt ("Coloque su nombre: ")
+        alert ("Hola señor " + nombreCliente);
+    }
 pesoUsuario = parseFloat (prompt ("¿Cual es tu peso en KG?"));
+peso();
+function peso() {
+let edad= prompt ("Coloque su edad: ")
+
+}
+
     esturaUsuario = parseFloat ( prompt ("¿Cual es tu estatura en metros cuadrados?"));
 imcUsuario = pesoUsuario / (esturaUsuario * esturaUsuario);
 alert ("Tu IMC es "+imcUsuario);
@@ -25,3 +36,4 @@ else if (imcUsuario >= 30) {
 }
 salir = prompt ("Si deseas calcular otro IMC usa s, si deseas salir usa n");
 } while (salir != "n")
+
