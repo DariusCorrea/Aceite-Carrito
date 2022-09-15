@@ -1,10 +1,16 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
 .header__nav{
-    background-color: #100720;
+    background-color: black;
 
 }
 
 body{
- background: #31087B;
+ background: white;
 }
 
 .nav-link{
@@ -40,6 +46,92 @@ body{
 }
 
 footer{
-   background-color:#100720;
-   height: 100px;
+   background-color:black;
+   height: px;
+}
+
+.imagen__principal{
+height: 700px;
+width: 100%;
+margin: auto;
+padding: auto;
+display: inline;
+justify-content: center;
+object-fit: contain;
+}
+
+h1{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.productos{
+    display: grid;
+    background: rgba(0, 0, 0, 0);
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    margin: 10px;
+    grid-gap: 30px;
+}
+
+.nuestros-productos{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 30px;
+    padding: 21px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.edit{
+    height: 600px;
+    padding: 10px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+width: auto;
+}
+button:hover{
+    transform: scale(1.1);
+
+    cursor: pointer;
+}
+.editar__boton{
+    background-color: rgba(0, 0, 0, 0.241);
+    border-radius: 15px;
+    text-decoration: none;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 20px;
+align-items: center;
+}
+.producto{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 15px;
+ 
+
+}
+.producto-nombre{
+font-size: 25px;
+padding: 5px;
+margin: 10px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.producto-precio{
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
