@@ -32,7 +32,6 @@
     <button class="editar__boton">Quitar del carrito</button>
           </div>
           </div>
-  </div>
 <div class= productos> 
 <div class="producto">
   <div class="producto-blanco">
