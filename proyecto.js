@@ -19,19 +19,21 @@
   
   arrayProductos.forEach (Producto =>{
   let div = document.createElement("div");
-  div.innerHTML = `    <div class="producto">
-  <div class="producto-blanco">
-    <img class="edit" src="./resources/olive.jpg">
+  div.innerHTML = `   <div class= productos> 
+  <div class="producto">
+    <div class="producto-blanco">
+      <img class="edit" src="./resources/cocina.jpg">
+    </div>
+  
+    <div class="producto-informacion">
+    <p class="producto-nombre">Aceite Natura</p>
+    <p class="producto-precio">1800$</p>
+    <button class="editar__boton">Agregar al carrito</button>
+    <button class="editar__boton">Quitar del carrito</button>
+          </div>
+          </div>
   </div>
-
-  <div class="producto-informacion">
-  <p class="producto-nombre">Aceite Natura</p>
-  <p class="producto-precio">1800$</p>
-  <button class="editar__boton">Agregar al carrito</button>
-  <button class="editar__boton">Quitar del carrito</button>
-        </div>
-
-</div>
+<div class= productos> 
 <div class="producto">
   <div class="producto-blanco">
     <img class="edit" src="./resources/cocina.jpg">
@@ -43,8 +45,9 @@
   <button class="editar__boton">Agregar al carrito</button>
   <button class="editar__boton">Quitar del carrito</button>
         </div>
-
+        </div>
 </div>
+<div class= productos> 
 <div class="producto">
   <div class="producto-blanco">
     <img class="edit" src="./resources/cocina.jpg">
@@ -56,7 +59,7 @@
   <button class="editar__boton">Agregar al carrito</button>
   <button class="editar__boton">Quitar del carrito</button>
         </div>
-
+        </div>
 </div>`;
   contenedor.appendChild(div);
   })  
