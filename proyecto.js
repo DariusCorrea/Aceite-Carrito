@@ -1,67 +1,32 @@
-
-/* Proyecto carrito de compras */
-
-  class Producto{
-  constructor (nombre, precio){
-      this.nombre=nombre;
-      this.precio=precio;
-  
-  }
-  }
-  
-  const aceite = new Producto ("Aceite", 1700);
-  
-  const oliva = new Producto ("Aceite de oliva", 2500);
-  
-  const arrayProductos = [aceite , oliva];
-  
-  const contenedor= document.getElementById("contenedor");
-  
-  arrayProductos.forEach (Producto =>{
-  let div = document.createElement("div");
-  div.innerHTML = `   <div class= productos> 
-  <div class="producto">
-    <div class="producto-blanco">
-      <img class="edit" src="./resources/cocina.jpg">
-    </div>
-  
-    <div class="producto-informacion">
-    <p class="producto-nombre">Aceite Natura</p>
-    <p class="producto-precio">1800$</p>
-    <button class="editar__boton">Agregar al carrito</button>
-    <button class="editar__boton">Quitar del carrito</button>
-          </div>
-          </div>
-<div class= productos> 
-<div class="producto">
-  <div class="producto-blanco">
-    <img class="edit" src="./resources/cocina.jpg">
-  </div>
-
-  <div class="producto-informacion">
-  <p class="producto-nombre">Aceite Natura</p>
-  <p class="producto-precio">1800$</p>
-  <button class="editar__boton">Agregar al carrito</button>
-  <button class="editar__boton">Quitar del carrito</button>
-        </div>
-        </div>
+let carrito= []
+const contenedor= document.getElementById("contenedor");
+console.log(console);
+function verProductos(items){
+  items.forEach(element => {
+let card= document.createElement("div")
+card.classList.add=("card");
+card.style="width: 18rem;"
+card.innerHTML=`
+  <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">${element.Producto}</h5>
+    <p class="card-text">$${element.precio}</p>
+  <button id="agregar${element.id}" class="btn btn-secundary editar__boton d-flex">Agregar al carrito</button> 
 </div>
-<div class= productos> 
-<div class="producto">
-  <div class="producto-blanco">
-    <img class="edit" src="./resources/cocina.jpg">
-  </div>
+</div>`
+contenedor.appendChild(card)
+let botonAgregar=document.getElementById(`agregar${element.id}`);
+botonAgregar.addEventListener("click", () =>{
+  console.log(`${element.Producto}`)
+  alert("Su producto fue agregado con éxito "+ element.precio)
+})
+  });
+}
+const agregarProducto=(prodId) => {
+  const item = contenedor.find((prod) => prod.id === prodId)
+  carrito.push(item)
+  console.log(carrito)
+}
 
-  <div class="producto-informacion">
-  <p class="producto-nombre">Aceite Natura</p>
-  <p class="producto-precio">1800$</p>
-  <button class="editar__boton">Agregar al carrito</button>
-  <button class="editar__boton">Quitar del carrito</button>
-        </div>
-        </div>
-</div>`;
-  contenedor.appendChild(div);
-  })  
-  
-  
-  
+verProductos(Productos);
+
