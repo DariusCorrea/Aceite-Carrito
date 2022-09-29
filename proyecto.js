@@ -1,9 +1,11 @@
+/* Carrito de compras en construcción */
+ 
 
-let carrito= []
 const contenedor= document.getElementById("contenedor");
-console.log(console);
-function verProductos(items){
-  items.forEach(element => {
+
+
+function verProductos(Productos){
+  Productos.forEach(element => {
 let card= document.createElement("div")
 card.classList.add=("card");
 card.style="width: 18rem;"
@@ -12,32 +14,70 @@ card.innerHTML=`
   <div class="card-body">
     <h5 class="card-title">${element.Producto}</h5>
     <p class="card-text">$${element.precio}</p>
-  <button id="agregar${element.id}" class="btn btn-dark ">Agregar al carrito</button>
+  <button id="agregar${element.id}" class="btn editar__color ">Agregar al carrito</button>
 
 </div>
 </div>`
 contenedor.appendChild(card)
 
+
+/* Evento click */
 let botonAgregar=document.getElementById(`agregar${element.id}`);
 botonAgregar.addEventListener("click", () =>{
   console.log(`${element.Producto}`) 
-  alert("Su producto fue agregado con éxito "+ element.precio)
+  agregarAlCarrito(element.id);  
 
 })
+
+
   });
   
 }
-
-
-function agregarProductos(element){
-  console.log(`${element.Producto}`)
-  alert(element.precio)
+const carrito = [];
+const agregarAlCarrito=(id) =>{
+  const producto = Productos.find(element => element.id === id);
+  const productoEnCarrito = carrito.find(element => element.id === id);
+ 
+if(productoEnCarrito){
+  productoEnCarrito.cantidad++;
+}else{
+  carrito.push(producto);
 }
-const agregarProducto=(element) => {
-  const item = contenedor.find((Producto) => element.id === element.id)
-  carrito.push(item)
+}
+
+
+  
   console.log(carrito)
-}
+
+
 
 verProductos(Productos);
 
+
+const contenedorCarrito = document.getElementById("contenedorCarrito");
+const verCarrito = document.getElementById("verCarrito");
+verCarrito.addEventListener("click", actualizarCarrito);
+function actualizarCarrito() {
+
+  let aux="";
+  carrito.forEach(element => {
+
+    let card= document.createElement("div")
+      aux += `<div class="card col-xl-3 col-md-6 col-sm-12">
+      <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${element.Producto}</h5>
+        <p class="card-text">$${element.precio}</p>
+      <button class="btn editar__color ">Quitar</button>
+    
+    </div>
+    </div>`
+    
+              contenedorCarrito.innerHTML = aux;
+  })
+
+
+
+
+}
+ 

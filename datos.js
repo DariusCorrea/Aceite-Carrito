@@ -1,4 +1,4 @@
-
+/* Productos */
 const Productos = [
     {id:"1", Producto: "Aceite Natura", precio: 2400, imagen: "./resources/litro.webp"},
     {id:"2", Producto: "aceite de cocina", precio: 1700, imagen: "./resources/natura.png"},
@@ -9,4 +9,3 @@ const Productos = [
     {id:"7", Producto: "aceite cañuelas oliva", precio: 2600, imagen: "./resources/olive-cañuelas.jpg"},
     {id:"8", Producto: "aceite cañuelas girasol", precio: 3000, imagen: "./resources/cinco.jpg"},
 ];
-    
