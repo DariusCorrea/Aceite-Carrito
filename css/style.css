@@ -123,4 +123,9 @@ align-items: center;
 .editar__color{
     background-color: orange;
     font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    height: 70px;
+    width: 220px;
+    padding: 10px;
 }

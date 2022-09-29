@@ -3,7 +3,7 @@
 
 const contenedor= document.getElementById("contenedor");
 
-
+verProductos(Productos)
 function verProductos(Productos){
   Productos.forEach(element => {
 let card= document.createElement("div")
@@ -34,7 +34,7 @@ botonAgregar.addEventListener("click", () =>{
   
 }
 const carrito = [];
-const agregarAlCarrito=(id) =>{
+ const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
   const productoEnCarrito = carrito.find(element => element.id === id);
  
@@ -51,29 +51,28 @@ if(productoEnCarrito){
 
 
 
-verProductos(Productos);
 
 
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
-verCarrito.addEventListener("click", actualizarCarrito);
+verCarrito.addEventListener("click",actualizarCarrito,agregarStorage);
 function actualizarCarrito() {
 
   let aux="";
   carrito.forEach(element => {
-
-    let card= document.createElement("div")
       aux += `<div class="card col-xl-3 col-md-6 col-sm-12">
       <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${element.Producto}</h5>
         <p class="card-text">$${element.precio}</p>
-      <button OnClick="eliminarProducto(${element.id})" class="btn editar__color ">Quitar del carrito</button>
+      <button OnClick="eliminarProducto(${element.id})" class=" editar__color ">Quitar del carrito</button>
     
     </div>
     </div>`
-    
+    agregarStorage()
+
               contenedorCarrito.innerHTML = aux;
+
   })
 }
 
@@ -81,5 +80,19 @@ const eliminarProducto = (id) => {
   const Productos = carrito.find(element => element.id === id);
   carrito.splice(carrito.indexOf(Productos),1);
   actualizarCarrito();
-   
+
 }
+
+/* STORAGE Y JSON */
+
+function agregarStorage(){
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+const carritos= JSON.parse(localStorage.getItem("carrito"));
+for(let i=0; i< carritos.length; i++){
+  carrito.push(carritos[i]);
+  actualizarCarrito()
+
+}
+
+
