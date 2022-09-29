@@ -68,16 +68,18 @@ function actualizarCarrito() {
       <div class="card-body">
         <h5 class="card-title">${element.Producto}</h5>
         <p class="card-text">$${element.precio}</p>
-      <button class="btn editar__color ">Quitar</button>
+      <button OnClick="eliminarProducto(${element.id})" class="btn editar__color ">Quitar del carrito</button>
     
     </div>
     </div>`
     
               contenedorCarrito.innerHTML = aux;
   })
-
-
-
-
 }
- 
+
+const eliminarProducto = (id) => {
+  const Productos = carrito.find(element => element.id === id);
+  carrito.splice(carrito.indexOf(Productos),1);
+  actualizarCarrito();
+   
+}
