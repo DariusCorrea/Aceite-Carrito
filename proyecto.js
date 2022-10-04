@@ -38,12 +38,13 @@ const carrito = [];
  const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
   const productoEnCarrito = carrito.find(element => element.id === id);
- 
 if(productoEnCarrito){
   productoEnCarrito.cantidad++;
 }else{
   carrito.push(producto);
 }
+console.log(carrito)
+
 agregarStorage()
 }
 
@@ -99,3 +100,4 @@ for(let i=0; i< carritos.length; i++){
   actualizarCarrito()
 
 }
+
