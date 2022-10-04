@@ -46,9 +46,6 @@ if(productoEnCarrito){
 }
 guardarProducto()
 }
-
-
-  
   console.log(carrito)
 
 
