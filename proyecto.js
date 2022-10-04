@@ -4,6 +4,7 @@
 const contenedor= document.getElementById("contenedor");
 
 verProductos(Productos)
+
 function verProductos(Productos){
   Productos.forEach(element => {
 let card= document.createElement("div")
@@ -43,6 +44,7 @@ if(productoEnCarrito){
 }else{
   carrito.push(producto);
 }
+agregarStorage()
 }
 
 
@@ -56,9 +58,11 @@ if(productoEnCarrito){
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
 verCarrito.addEventListener("click",actualizarCarrito,agregarStorage);
+/* Funcion para mostrar productos agregados */
 function actualizarCarrito() {
+let aux="";
+  contenedorCarrito.innerHTML = ""
 
-  let aux="";
   carrito.forEach(element => {
       aux += `<div class="card col-xl-3 col-md-6 col-sm-12">
       <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
@@ -69,18 +73,18 @@ function actualizarCarrito() {
     
     </div>
     </div>`
-    agregarStorage()
-
-              contenedorCarrito.innerHTML = aux;
+    contenedorCarrito.innerHTML = aux;
 
   })
 }
-
+/* Eliminar producto */
 const eliminarProducto = (id) => {
-  const Productos = carrito.find(element => element.id === id);
-  carrito.splice(carrito.indexOf(Productos),1);
+  console.log(id)
+  const productoBorrar = carrito.find(element => element.id == id);
+  console.log(productoBorrar)
+  carrito.splice(carrito.indexOf(productoBorrar),1);
   actualizarCarrito();
-
+  agregarStorage()
 }
 
 /* STORAGE Y JSON */
@@ -89,10 +93,9 @@ function agregarStorage(){
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 const carritos= JSON.parse(localStorage.getItem("carrito"));
+
 for(let i=0; i< carritos.length; i++){
   carrito.push(carritos[i]);
   actualizarCarrito()
 
 }
-
-
