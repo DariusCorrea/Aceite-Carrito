@@ -1,5 +1,4 @@
 /* Carrito de compras en construcción */
- 
 
 const contenedor= document.getElementById("contenedor");
 
@@ -35,10 +34,10 @@ botonAgregar.addEventListener("click", () =>{
   
 }
 const carrito = [];
- const agregarAlCarrito=(id) =>{
+const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
   const productoEnCarrito = carrito.find(element => element.id === id);
- 
+
 if(productoEnCarrito){
   productoEnCarrito.cantidad++;
 }else{
