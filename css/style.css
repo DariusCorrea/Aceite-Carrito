@@ -3,11 +3,14 @@
     padding: 0;
 }
 
+.imagen__logo{
+height: 100px;    
 
+}
 .header__nav{
     background-color: rgb(235, 152, 0);
     font-size: 21px;
-
+height: 80px;
 }
 
 body{
