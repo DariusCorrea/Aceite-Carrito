@@ -87,10 +87,16 @@ const eliminarProducto = (id) => {
 function guardarProducto(){
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-const cargarProducto= JSON.parse(localStorage.getItem("carrito"));{ 
+/* Operador OR */
+const cargarProducto = JSON.parse(localStorage.getItem("carrito"))||[];{
 /* SPREAD */
 carrito.push(...cargarProducto)
   actualizarCarrito()
 }
+/*  const cargarProducto= JSON.parse(localStorage.getItem("carrito"));{ */
+/* FOR */
 /*for(let i=0; i< cargarProducto.length; i++)
 carrito.push(cargarProducto[i]);  */
+
+
+ 
