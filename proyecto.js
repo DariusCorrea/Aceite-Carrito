@@ -37,7 +37,6 @@ const carrito = [];
 const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
   const productoEnCarrito = carrito.find(element => element.id === id);
-
 if(productoEnCarrito){
   productoEnCarrito.cantidad++;
 }else{
@@ -46,7 +45,6 @@ if(productoEnCarrito){
 guardarProducto()
 }
   console.log(carrito)
-
 
 
 
@@ -95,8 +93,8 @@ carrito.push(...cargarProducto)
 }
 /*  const cargarProducto= JSON.parse(localStorage.getItem("carrito"));{ */
 /* FOR */
+
 /*for(let i=0; i< cargarProducto.length; i++)
 carrito.push(cargarProducto[i]);  */
 
 
- 

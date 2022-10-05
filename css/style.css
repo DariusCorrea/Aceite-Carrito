@@ -136,3 +136,132 @@ align-items: center;
 .card-img-top{
     border-radius: 20px;
 }
+
+@media  (min-width:320px) and (max-width:575px) {
+
+    
+    .imagen__logo{
+        height: 60px;    
+        
+        }
+        .header__nav{
+            background-color: rgb(235, 152, 0);
+            font-size: 21px;
+            position: sticky;
+            top: 1;
+        }
+        
+        body{
+            background: white;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: auto;
+        height: auto;
+        }
+        
+        .nav-link{
+            color: rgb(0, 0, 0);
+            
+        
+        }
+        
+        .nav-item{
+            color: white;
+            padding: 10px;
+        }
+        
+        .navbar-nav{
+            color: rgb(0, 0, 0);
+        }
+        
+        .navbar-brand{
+            color: rgb(0, 0, 0);
+        }
+        
+        .navbar-toggler{
+            color: white;
+        
+        }
+        
+        .menu__Fondo{
+            background-size:cover;
+            width: auto;
+            margin: 3px;
+            height: 900px;
+        }
+        
+        footer{
+            background-color:black;
+            height: 90px;
+        }
+        
+        .imagen__principal{
+        height: auto;
+        width: auto;
+        margin: auto;
+        padding: auto;
+        display: inline;
+        justify-content: center;
+        object-fit: contain;
+        }
+        
+        h1{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+        }
+
+        .contenedorCarrito{
+            display: flex;
+            justify-content: center;
+        }
+        
+        
+        button:hover{
+            transform: scale(1.1);
+        
+            cursor: pointer;
+        }
+        .editar__boton{
+            background-color: rgba(213, 14, 14, 0.241);
+            border-radius: 15px;
+            text-decoration: none;
+            border: none;
+            height: 50px;
+            width: 200px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            margin: 20px;
+        align-items: center;
+        }
+        
+        .edit{
+            margin: 20px;
+            
+        }
+        
+        .tamano__imagen{
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+            padding: 3px;
+            background-size: contain;
+        }
+        
+
+        .editar__color{
+            background-color: orange;
+            font-size: 20px;
+            border-radius: 20px;
+            border: none;
+            height: 70px;
+            width: 220px;
+            padding: 10px;
+        }
+        
+        .card-img-top{
+            border-radius: 20px;
+        }
+}
