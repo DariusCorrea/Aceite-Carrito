@@ -24,15 +24,23 @@ contenedor.appendChild(card)
 /* Evento click */
 let botonAgregar=document.getElementById(`agregar${element.id}`);
 botonAgregar.addEventListener("click", () =>{
+  Swal.fire({
+title: "Su producto fue agregado con éxito",
+icon: "success",
+background: "orange",
+iconColor: "green",
+color: "white",
+
+  })
   console.log(`${element.Producto}`) 
   agregarAlCarrito(element.id);  
-
 })
 
 
   });
   
 }
+
 const carrito = [];
 const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
@@ -52,6 +60,8 @@ guardarProducto()
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
 verCarrito.addEventListener("click",actualizarCarrito,guardarProducto);
+
+
 function actualizarCarrito() {
 let aux="";
   contenedorCarrito.innerHTML = ""
@@ -97,4 +107,4 @@ carrito.push(...cargarProducto)
 /*for(let i=0; i< cargarProducto.length; i++)
 carrito.push(cargarProducto[i]);  */
 
-
+/* lIBRERIA */

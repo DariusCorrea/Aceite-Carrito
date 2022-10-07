@@ -50,11 +50,12 @@ height: auto;
     width: auto;
     margin: 3px;
     height: 900px;
+    border: black;
 }
 
 footer{
-    background-color:black;
-    height: px;
+    background-color:orange;
+    height: 200px;
 }
 
 .imagen__principal{
