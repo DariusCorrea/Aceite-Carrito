@@ -1,28 +1,38 @@
 /* Carrito de compras en construcción */
 
+const Productos =
+[
+  {"id":1, "Producto": "Aceite Natura 900ml", "precio": 2400, "imagen": "./resources/litro.webp"},
+  {"id":2, "Producto": "Aceite Natura", "precio": 1700, "imagen": "./resources/natura.png"},
+  {"id":3,"Producto": "Aceite Cocinero", "precio": 1100, "imagen": "./resources/cocinero.webp"},
+  {"id":4, "Producto": "Aceite cañuelas 1L", "precio": 1300, "imagen": "./resources/cañuelas.png"},
+  {"id":5, "Producto": "Aceite cañuelas 5L", "precio": 3000, "imagen": "./resources/5litros.jpg"},
+  {"id":6, "Producto": "Aceite Natura de oliva", "precio": 1900, "imagen": "./resources/natura-oliva.jpg"},
+  {"id":7, "Producto": "aceite Cañuelas oliva", "precio": 2000, "imagen": "./resources/olive-cañuelas.jpg"},
+  {"id":8, "Producto": "aceite Cañuelas girasol", "precio": 3000, "imagen": "./resources/cinco.jpg"}
+]
+/* FETCH */
 const contenedor= document.getElementById("contenedor");
+const listadoProductos= "json/Productos.json";
 
-verProductos(Productos)
-
-function verProductos(Productos){
-  Productos.forEach(element => {
-let card= document.createElement("div")
-card.classList.add=("card");
-card.style="width: 18rem;"
-card.innerHTML=`
-  <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">${element.Producto}</h5>
-    <p class="card-text">$${element.precio}</p>
-  <button id="agregar${element.id}" class="btn editar__color ">Agregar al carrito</button>
-
-</div>
-</div>`
-contenedor.appendChild(card)
-
-
-/* Evento click */
-let botonAgregar=document.getElementById(`agregar${element.id}`);
+fetch(listadoProductos)
+.then(respuesta=> respuesta.json())
+.then(datos=>{
+  datos.forEach(element=>{
+    let card= document.createElement("div")
+    card.classList.add=("card");
+    card.style="width: 18rem;"
+    card.innerHTML+= 
+    `<img class="card-img-top" src="${element.imagen}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">${element.Producto}</h5>
+      <p class="card-text">$${element.precio}</p>
+    <button id="agregar${element.id}" class="btn editar__color ">Agregar al carrito</button>
+  
+  </div>
+  </div>`
+  contenedor.append(card)
+  let botonAgregar=document.getElementById(`agregar${element.id}`);
 botonAgregar.addEventListener("click", () =>{
   Swal.fire({
 title: "Su producto fue agregado con éxito",
@@ -34,12 +44,11 @@ color: "white",
   })
   console.log(`${element.Producto}`) 
   agregarAlCarrito(element.id);  
+}) 
+  })
 })
 
-
-  });
-  
-}
+/* Evento click */
 
 const carrito = [];
 const agregarAlCarrito=(id) =>{
@@ -83,7 +92,7 @@ let aux="";
 /* Eliminar producto del carrito */
 const eliminarProducto = (id) => {
   console.log(id)
-  const productoBorrar = carrito.find(element => element.id == id);
+  const productoBorrar = Productos.find(element => element.id == id);
   console.log(productoBorrar)
   carrito.splice(carrito.indexOf(productoBorrar),1);
   actualizarCarrito();
