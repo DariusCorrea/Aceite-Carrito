@@ -8,7 +8,7 @@ height: 100px;
 
 }
 .header__nav{
-    background-color: rgb(235, 152, 0);
+    background-color: rgba(2, 107, 11, 0.798);
     font-size: 21px;
 height: 80px;
 }
@@ -54,7 +54,7 @@ height: auto;
 }
 
 footer{
-    background-color:orange;
+    background-color:rgba(2, 107, 11, 0.798);;
     height: 200px;
 }
 
@@ -124,14 +124,16 @@ align-items: center;
     align-self: flex-start;
 }
 
+
 .editar__color{
-    background-color: rgb(255, 166, 0);
+    background-color: rgba(2, 107, 11, 0.798);
     font-size: 20px;
     border-radius: 20px;
     border: none;
     height: 70px;
     width: 220px;
-    padding: 10px;
+    padding: 20px;
+    margin: 20px;
 }
 
 .card-img-top{
@@ -146,7 +148,7 @@ align-items: center;
         
         }
         .header__nav{
-            background-color: rgb(235, 152, 0);
+            background-color: rgba(2, 107, 11, 0.798);
             font-size: 21px;
             position: sticky;
             top: 1;
@@ -253,7 +255,7 @@ align-items: center;
         
 
         .editar__color{
-            background-color: orange;
+            background-color:rgba(2, 107, 11, 0.798);
             font-size: 20px;
             border-radius: 20px;
             border: none;
@@ -268,8 +270,8 @@ align-items: center;
     
 }
 
-.modal-container{
-    width:56%;
+.carrito-container{
+    width:66%;
     margin: 0 20%;
     max-height: 58vh;
     color: white;
@@ -288,14 +290,14 @@ align-items: center;
 .modal-header{
     display: flex;
     justify-content: space-around;
-    background-color: rgb(255, 166, 0);
+    background-color: rgba(2, 107, 11, 0.798);
     color: black;
     width: 100%;
 }
-.modal-container::-webkit-scrollbar{
+.carrito-container::-webkit-scrollbar{
     display: none;
 }
-.modal-container > .modal-content{
+.carrito-container > .modal-content{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -304,7 +306,7 @@ align-items: center;
     margin: 10px;
 }
 
-.modal-container > div> img{
+.carrito-container > div> img{
     height: 200px;
     width: 200px;
 }
@@ -317,4 +319,31 @@ align-items: center;
     align-items: center;
     margin-left: none;
     padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+cant-carrito{
+    background-color:black;
+    color: white;
+    border-radius: 150%;
+    font-size: 12px;
+    padding: 4px;
+    top: 37px;
+    right: 14px;
+    position: absolute;
+    display: none;
+}
+
+.card-body{
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: black;
+}
+.card-title{
+    font-size: 25px;
+}
+
+.editar-col{
+    color: black
 }

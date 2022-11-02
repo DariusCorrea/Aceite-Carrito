@@ -1,5 +1,4 @@
 /* Carrito de compras en construcción */
-
 const Productos =
 [
   {"id":1, "Producto": "Aceite Natura 900ml", "precio": 2400, "imagen": "./resources/litro.webp"},
@@ -41,8 +40,8 @@ botonAgregar.addEventListener("click", () =>{
   Swal.fire({
 title: "Su producto fue agregado con éxito",
 icon: "success",
-background: "orange",
-iconColor: "green",
+background: "green",
+iconColor: "white",
 color: "white",
 
   })
@@ -51,8 +50,8 @@ color: "white",
 }) 
   })
 })
-.catch(error=> console.log(error))
-.finally(()=> console.log("FIN"));
+
+/* Agregar producto al carrito  */
 const carrito = [];
 const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
@@ -60,9 +59,10 @@ const agregarAlCarrito=(id) =>{
 if(productoEnCarrito){
   productoEnCarrito.cantidad++;
 }else{
-  carrito.push(producto);
+  carrito.push(producto)
 }
 guardarProducto()
+carritoContador()
 }
   console.log(carrito)
 
@@ -122,23 +122,22 @@ carrito.push(...cargarProducto)
 carrito.push(cargarProducto[i]);  */
 
 /* Observar los productos en el carrito mediante el emoji del carrito situado en la barra de navegación */
-
-const modalContainer = document.getElementById("modal-container");
-
-  eerCarrov.addEventListener("click", ()=>{
-    modalContainer.innerHTML = ""
-    modalContainer.style.display = "flex";
+const carritoContainer = document.getElementById("carritoContainer");
+const verProducto = document.getElementById("verProducto");
+const carritoNavBar=() =>{ 
+  carritoContainer.innerHTML = ""
+  carritoContainer.style.display = "flex";
 
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML= `
     <h1 class= "modal-header-tittle">Carrito</h1>`
-    modalContainer.append(modalHeader);
+    carritoContainer.append(modalHeader);
     const modalbutton = document.createElement("h1");
     modalbutton.innerText = "x";
     modalbutton.className = "modal-header-button";
     modalbutton.addEventListener("click", ()=>{ 
-    modalContainer.style.display = "none";
+      carritoContainer.style.display = "none";
     })
     
 
@@ -151,25 +150,42 @@ const modalContainer = document.getElementById("modal-container");
       <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${element.Producto}</h5>
-        <p class="card-text">$${element.precio}</p>
-        <button OnClick="eliminarProductoDos(${element.id})" class=" editar__color ">Quitar del carrito</button>
-      `; 
-      modalContainer.append(carritoContent);
+        <p class="card-text">$${element.precio}</p>      `; 
+        carritoContainer.append(carritoContent);
+      let eliminar= document.createElement("span");
+      eliminar.innerText = "❌";
+      eliminar.className= "delete-product";
+      carritoContent.append(eliminar);
+      eliminar.addEventListener("click",eliminarProductoDos)
       
     });
     const total = carrito.reduce((acc,el) => acc + el.precio,0);
     const totalCompra= document.createElement("div")
     totalCompra.className= "total-content"
-    totalCompra.innerHTML = `total a pagar:${total}$`;
-    modalContainer.append(totalCompra);
+    totalCompra.innerHTML = `<p class= "editar-col">Total a pagar: $${total}</p>`;
+    carritoContainer.append(totalCompra);
     
-  })
+}
 
+const eliminarProductoDos = (id) => {
+  console.log(id)
+  const productoBorrar = Productos.find(element => element.id == id);
+  console.log(productoBorrar)
+  carrito.splice(carrito.indexOf(productoBorrar),1);
+  actualizarCarrito();
+  guardarProducto()
+  carritoContador()
+  carritoNavBar()
+}
 
-
+verProducto.addEventListener("click", carritoNavBar)
+const cantidadEnCarro = document.getElementById("cantidadEnCarro");
+const carritoContador = () => {
+  cantidadEnCarro.style.display = "block"
+cantidadEnCarro.innerText = carrito.length;
+}
 /*  TEST 
   const totalCompra = document.getElementById("totalCompra");
-
   const calcularTotalCompra = () => {
       let total = 0; 
       carrito.forEach( element => {
@@ -178,5 +194,3 @@ const modalContainer = document.getElementById("modal-container");
       totalCompra.innerHTML = total;
   }
 */
-
- 
