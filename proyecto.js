@@ -11,6 +11,8 @@ const Productos =
   {"id":7, "Producto": "aceite Cañuelas oliva", "precio": 2000, "imagen": "./resources/olive-cañuelas.jpg"},
   {"id":8, "Producto": "aceite Cañuelas girasol", "precio": 3000, "imagen": "./resources/cinco.jpg"}
 ]
+;
+
 /* FETCH */
 const contenedor= document.getElementById("contenedor");
 const listadoProductos= "json/Productos.json";
@@ -32,7 +34,9 @@ fetch(listadoProductos)
   </div>
   </div>`
   contenedor.append(card)
-  let botonAgregar=document.getElementById(`agregar${element.id}`);
+  /* Evento click */
+
+      let botonAgregar=document.getElementById(`agregar${element.id}`);
 botonAgregar.addEventListener("click", () =>{
   Swal.fire({
 title: "Su producto fue agregado con éxito",
@@ -47,9 +51,8 @@ color: "white",
 }) 
   })
 })
-
-/* Evento click */
-
+.catch(error=> console.log(error))
+.finally(()=> console.log("FIN"));
 const carrito = [];
 const agregarAlCarrito=(id) =>{
   const producto = Productos.find(element => element.id === id);
@@ -86,10 +89,11 @@ let aux="";
     </div>
     </div>`
     contenedorCarrito.innerHTML = aux;
-
+    
   })
 }
 /* Eliminar producto del carrito */
+
 const eliminarProducto = (id) => {
   console.log(id)
   const productoBorrar = Productos.find(element => element.id == id);
@@ -109,6 +113,7 @@ const cargarProducto = JSON.parse(localStorage.getItem("carrito"))||[];{
 /* SPREAD */
 carrito.push(...cargarProducto)
   actualizarCarrito()
+  
 }
 /*  const cargarProducto= JSON.parse(localStorage.getItem("carrito"));{ */
 /* FOR */
@@ -116,4 +121,62 @@ carrito.push(...cargarProducto)
 /*for(let i=0; i< cargarProducto.length; i++)
 carrito.push(cargarProducto[i]);  */
 
-/* lIBRERIA */
+/* Observar los productos en el carrito mediante el emoji del carrito situado en la barra de navegación */
+
+const modalContainer = document.getElementById("modal-container");
+
+  eerCarrov.addEventListener("click", ()=>{
+    modalContainer.innerHTML = ""
+    modalContainer.style.display = "flex";
+
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML= `
+    <h1 class= "modal-header-tittle">Carrito</h1>`
+    modalContainer.append(modalHeader);
+    const modalbutton = document.createElement("h1");
+    modalbutton.innerText = "x";
+    modalbutton.className = "modal-header-button";
+    modalbutton.addEventListener("click", ()=>{ 
+    modalContainer.style.display = "none";
+    })
+    
+
+    modalHeader.append(modalbutton);
+
+    carrito.forEach((element)=>{
+      let carritoContent = document.createElement("div");
+      carritoContent.className  =  "modal-content";
+      carritoContent.innerHTML = `
+      <img class="card-img-top" src="${element.imagen}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${element.Producto}</h5>
+        <p class="card-text">$${element.precio}</p>
+        <button OnClick="eliminarProductoDos(${element.id})" class=" editar__color ">Quitar del carrito</button>
+      `; 
+      modalContainer.append(carritoContent);
+      
+    });
+    const total = carrito.reduce((acc,el) => acc + el.precio,0);
+    const totalCompra= document.createElement("div")
+    totalCompra.className= "total-content"
+    totalCompra.innerHTML = `total a pagar:${total}$`;
+    modalContainer.append(totalCompra);
+    
+  })
+
+
+
+/*  TEST 
+  const totalCompra = document.getElementById("totalCompra");
+
+  const calcularTotalCompra = () => {
+      let total = 0; 
+      carrito.forEach( element => {
+          total += element.precio * element.cantidad;
+      });
+      totalCompra.innerHTML = total;
+  }
+*/
+
+ 
