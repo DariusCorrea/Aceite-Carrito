@@ -62,6 +62,7 @@ if(productoEnCarrito){
   carrito.push(producto)
 }
 guardarProducto()
+carritoNavBar()
 carritoContador()
 }
   console.log(carrito)
