@@ -174,12 +174,12 @@ const eliminarProductoDos = (id) => {
   console.log(productoBorrar)
   carrito.splice(carrito.indexOf(productoBorrar),1);
   actualizarCarrito();
-  guardarProducto()
-  carritoContador()
-  carritoNavBar()
+  guardarProducto();
+  carritoContador();
+  carritoNavBar();
 }
 
-verProducto.addEventListener("click", carritoNavBar)
+verProducto.addEventListener("click", carritoNavBar);
 const cantidadEnCarro = document.getElementById("cantidadEnCarro");
 const carritoContador = () => {
   cantidadEnCarro.style.display = "block"
