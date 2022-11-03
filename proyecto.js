@@ -32,7 +32,7 @@ fetch(listadoProductos)
   
   </div>
   </div>`
-  contenedor.append(card)
+  contenedor.append(card);
   /* Evento click */
 
       let botonAgregar=document.getElementById(`agregar${element.id}`);
@@ -61,9 +61,9 @@ if(productoEnCarrito){
 }else{
   carrito.push(producto)
 }
-guardarProducto()
-carritoNavBar()
-carritoContador()
+guardarProducto();
+carritoNavBar();
+carritoContador();
 }
   console.log(carrito)
 
@@ -101,7 +101,7 @@ const eliminarProducto = (id) => {
   console.log(productoBorrar)
   carrito.splice(carrito.indexOf(productoBorrar),1);
   actualizarCarrito();
-  guardarProducto()
+  guardarProducto();
 }
 
 /* STORAGE Y JSON */
@@ -113,7 +113,7 @@ function guardarProducto(){
 const cargarProducto = JSON.parse(localStorage.getItem("carrito"))||[];{
 /* SPREAD */
 carrito.push(...cargarProducto)
-  actualizarCarrito()
+  actualizarCarrito();
   
 }
 /*  const cargarProducto= JSON.parse(localStorage.getItem("carrito"));{ */
@@ -157,9 +157,10 @@ const carritoNavBar=() =>{
       eliminar.innerText = "❌";
       eliminar.className= "delete-product";
       carritoContent.append(eliminar);
-      eliminar.addEventListener("click",eliminarProductoDos)
+      eliminar.addEventListener("click",eliminarProductoDos);
       
     });
+    /* Calcula total de los productos agregados */
     const total = carrito.reduce((acc,el) => acc + el.precio,0);
     const totalCompra= document.createElement("div")
     totalCompra.className= "total-content"
@@ -182,7 +183,7 @@ const eliminarProductoDos = (id) => {
 verProducto.addEventListener("click", carritoNavBar);
 const cantidadEnCarro = document.getElementById("cantidadEnCarro");
 const carritoContador = () => {
-  cantidadEnCarro.style.display = "block"
+  cantidadEnCarro.style.display = "flex"
 cantidadEnCarro.innerText = carrito.length;
 }
 /*  TEST 
