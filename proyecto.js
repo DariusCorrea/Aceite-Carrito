@@ -176,8 +176,7 @@ const carritoNavBar=() =>{
     iconColor: "white",
     color: "white",
       })
-      console.log(`${element.Producto}`) 
-      agregarAlCarrito(element.id);  
+      guardarProducto()
     }) 
     carritoContainer.append(totalCompra);
     carritoContainer.append(pagoTotal);
