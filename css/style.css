@@ -397,7 +397,8 @@ align-items: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-cant-carrito{
+
+.cant-carrito{
     background-color:black;
     color: white;
     border-radius: 150%;
@@ -421,4 +422,15 @@ cant-carrito{
 
 .editar-col{
     color: black
+}
+
+.edit__boton{
+    border: 150px;
+    display: flex;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    height: 60px;
+    border-radius: 14px;
 }

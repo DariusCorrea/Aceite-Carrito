@@ -165,8 +165,22 @@ const carritoNavBar=() =>{
     const totalCompra= document.createElement("div")
     totalCompra.className= "total-content"
     totalCompra.innerHTML = `<p class= "editar-col">Total a pagar: $${total}</p>`;
+    let pagoTotal = document.createElement("div")
+    pagoTotal.className =  "total__compra"
+    pagoTotal.innerHTML= `<button class="edit__boton"> Realizar compra</button>`
+    pagoTotal.addEventListener("click", () =>{
+      Swal.fire({
+    title: "Has realizado la compra exitosamente, vuelva pronto",
+    icon: "success",
+    background: "grey",
+    iconColor: "white",
+    color: "white",
+      })
+      console.log(`${element.Producto}`) 
+      agregarAlCarrito(element.id);  
+    }) 
     carritoContainer.append(totalCompra);
-    
+    carritoContainer.append(pagoTotal);
 }
 
 const eliminarProductoDos = (id) => {
@@ -179,7 +193,7 @@ const eliminarProductoDos = (id) => {
   carritoContador();
   carritoNavBar();
 }
-
+/* Cuenta en la barra superior de la barra de navegación los productos que se encuentran agregados en el carrito */
 verProducto.addEventListener("click", carritoNavBar);
 const cantidadEnCarro = document.getElementById("cantidadEnCarro");
 const carritoContador = () => {
@@ -196,3 +210,5 @@ cantidadEnCarro.innerText = carrito.length;
       totalCompra.innerHTML = total;
   }
 */
+
+/* Realizar compra */
