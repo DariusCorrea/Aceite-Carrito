@@ -176,11 +176,23 @@ const carritoNavBar=() =>{
     iconColor: "white",
     color: "white",
       })
-      guardarProducto()
+if(pagoTotal){
+  swal.fire({
+    title: "Proceso finalizado vuelva pronto",
+    icon: "success",
+    background: "grey",
+    iconColor: "white",
+    color: "white",
+  }).then(function(){
+window.location = "index.html"
+  })
+}
+  
+
     }) 
     carritoContainer.append(totalCompra);
     carritoContainer.append(pagoTotal);
-}
+  }
 
 const eliminarProductoDos = (id) => {
   console.log(id)
@@ -210,4 +222,3 @@ cantidadEnCarro.innerText = carrito.length;
   }
 */
 
-/* Realizar compra */
