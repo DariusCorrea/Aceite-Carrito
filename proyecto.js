@@ -1,12 +1,12 @@
 /* Carrito de compras en construcción */
 const Productos =
 [
-  {"id":1, "Producto": "Aceite Natura 900ml", "precio": 2400, "imagen": "./resources/litro.webp"},
-  {"id":2, "Producto": "Aceite Natura", "precio": 1700, "imagen": "./resources/natura.png"},
+  {"id":1, "Producto": "Aceite Natura 900ml", "precio": 2300, "imagen": "./resources/litro.webp"},
+  {"id":2, "Producto": "Aceite Natura", "precio": 1000, "imagen": "./resources/natura.png"},
   {"id":3,"Producto": "Aceite Cocinero", "precio": 1100, "imagen": "./resources/cocinero.webp"},
-  {"id":4, "Producto": "Aceite cañuelas 1L", "precio": 1300, "imagen": "./resources/cañuelas.png"},
+  {"id":4, "Producto": "Aceite cañuelas 1L", "precio": 1100, "imagen": "./resources/cañuelas.png"},
   {"id":5, "Producto": "Aceite cañuelas 5L", "precio": 3000, "imagen": "./resources/5litros.jpg"},
-  {"id":6, "Producto": "Aceite Natura de oliva", "precio": 1900, "imagen": "./resources/natura-oliva.jpg"},
+  {"id":6, "Producto": "Aceite Natura de oliva", "precio": 1400, "imagen": "./resources/natura-oliva.jpg"},
   {"id":7, "Producto": "aceite Cañuelas oliva", "precio": 2000, "imagen": "./resources/olive-cañuelas.jpg"},
   {"id":8, "Producto": "aceite Cañuelas girasol", "precio": 3000, "imagen": "./resources/cinco.jpg"}
 ]
@@ -21,8 +21,8 @@ fetch(listadoProductos)
 .then(datos=>{
   datos.forEach(element=>{
     let card= document.createElement("div")
-    card.classList.add=("card");
-    card.style="width: 18rem;"
+    card.className.add=("card");
+    card.style="width: 20rem;"
     card.innerHTML+= 
     `<img class="card-img-top" src="${element.imagen}" alt="Card image cap">
     <div class="card-body">
@@ -40,8 +40,8 @@ botonAgregar.addEventListener("click", () =>{
   Swal.fire({
 title: "Su producto fue agregado con éxito",
 icon: "success",
-background: "green",
-iconColor: "white",
+background: "rgba(216, 202, 10, 0.821)",
+iconColor: "black",
 color: "white",
 
   })
@@ -161,7 +161,7 @@ const carritoNavBar=() =>{
       
     });
     /* Calcula total de los productos agregados */
-    const total = carrito.reduce((acc,el) => acc + el.precio,0);
+    const total = carrito.reduce((acc,el) => acc + el.precio,0)
     const totalCompra= document.createElement("div")
     totalCompra.className= "total-content"
     totalCompra.innerHTML = `<p class= "editar-col">Total a pagar: $${total}</p>`;
@@ -169,31 +169,24 @@ const carritoNavBar=() =>{
     pagoTotal.className =  "total__compra"
     pagoTotal.innerHTML= `<button class="edit__boton"> Realizar compra</button>`
     pagoTotal.addEventListener("click", () =>{
-      Swal.fire({
-    title: "Has realizado la compra exitosamente, vuelva pronto",
-    icon: "success",
-    background: "grey",
-    iconColor: "white",
-    color: "white",
-      })
-if(pagoTotal){
-  swal.fire({
-    title: "Proceso finalizado vuelva pronto",
-    icon: "success",
-    background: "grey",
-    iconColor: "white",
-    color: "white",
-  }).then(function(){
-window.location = "index.html"
-  })
-}
+      if(total=>0){
+        swal.fire({
+          title: "Su compra fue éxitosa, vuelva pronto",
+          icon: "Sucess",
+          background: "grey",
+          iconColor: "white",
+          color: "white",
+        }).then(function(){
+      window.location = "index.html"
+        })
+      }
   
 
     }) 
     carritoContainer.append(totalCompra);
     carritoContainer.append(pagoTotal);
+    carritoContador();
   }
-
 const eliminarProductoDos = (id) => {
   console.log(id)
   const productoBorrar = Productos.find(element => element.id == id);
@@ -221,4 +214,3 @@ cantidadEnCarro.innerText = carrito.length;
       totalCompra.innerHTML = total;
   }
 */
-

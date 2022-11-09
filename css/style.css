@@ -8,12 +8,15 @@ height: 100px;
 
 }
 .header__nav{
-    background-color: rgba(2, 107, 11, 0.798);
+    background-color: rgba(216, 202, 10, 0.821);
     font-size: 21px;
+    height: auto;
+    top: 1;
+    position: sticky;
 }
 
 body{
-    background-image: url(../resources/fondo.jpg);
+   background-color: rgba(0, 0, 0, 0);
 background-repeat: no-repeat;
 background-size: cover;
 width: auto;
@@ -53,8 +56,8 @@ height: auto;
 }
 
 footer{
-    background-color:rgba(2, 107, 11, 0.798);;
-    height: 200px;
+    background-color:rgba(0, 0, 0, 0.935);
+    height: 370px;
 }
 
 .imagen__principal{
@@ -125,7 +128,7 @@ align-items: center;
 
 
 .editar__color{
-    background-color: rgba(2, 107, 11, 0.798);
+    background-color: rgba(216, 202, 10, 0.821);
     font-size: 20px;
     border-radius: 20px;
     border: none;
@@ -269,7 +272,7 @@ align-items: center;
         }
         
         footer{
-            background-color:black;
+            background-color:rgba(0, 0, 0, 0.493);
             height: 90px;
         }
         
@@ -330,7 +333,7 @@ align-items: center;
         
 
         .editar__color{
-            background-color:rgba(2, 107, 11, 0.798);
+            background-color:rgba(216, 202, 10, 0.821);
             font-size: 20px;
             border-radius: 20px;
             border: none;
@@ -356,8 +359,9 @@ align-items: center;
     align-items:center;
     position: fixed;
     overflow: auto;
-    z-index: 19;
-    top: 12vh;
+    justify-content: left;
+    z-index: 400;
+    top: 5vh;
     border-radius: 30px;
     scrollbar-color: none;
 }
@@ -365,7 +369,7 @@ align-items: center;
 .modal-header{
     display: flex;
     justify-content: space-around;
-    background-color: rgba(2, 107, 11, 0.798);
+    background-color: rgba(216, 202, 10, 0.821);
     color: black;
     width: 100%;
 }
@@ -430,7 +434,29 @@ align-items: center;
     width: 150px;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: rgba(216, 202, 10, 0.821);
     height: 60px;
     border-radius: 14px;
 }
+.cañuelas-edit{
+    display: flex;
+    justify-content: right;
+    margin: 5px;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:large;
+    color: white;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 230px 230px 230px 230px;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 130px;
+    border-radius: 740px;
+    border: none;
+}
+
